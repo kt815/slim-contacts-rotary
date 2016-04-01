@@ -1,0 +1,109 @@
+<!DOCTYPE html><!--[if IE 8]><html class="ie8"><![endif]--><!--[if IE 9]><html class="ie9"><![endif]--><!--[if gt IE 8]><!-->
+<html lang="ru-RU"><!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="Contact form like contact.us">
+    <meta name="author" content="contact.us">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <title>Contact Form, MySQL, Css, Html, PHP, PSD
+<body>
+    </title>
+    <!-- build:css css/contact.min.css-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ baseUrl() }}/css/app.css">
+    <link rel="stylesheet" type="text/css" href="{{ baseUrl() }}/css/contact.css">
+    <!-- /build-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300" rel="stylesheet" type="text/css"><!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js"></script><![endif]-->
+    <!--[if IE 8]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/selectivizr/1.0.2/selectivizr-min.js"></script><![endif]-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+  </head>
+<header class="headerline__header">
+  <div class="container-fluid">
+    <div class="row-fluid">
+      <div class="col-lg-6 col-md-6 col-sm-5 col-xs-12 headerline__logo">
+        <div class="headerline__logo_background"><a href="#" class="headerline__logo_a">Contact Us</a></div>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-7 col-xs-12 headerline__nav">
+        <nav>
+          <div class="headerline__search">
+            <div class="headerline__search_relative">
+              <input name="q" placeholder="Search for..." value="" type="text" class="headerline__search_input"><a href="#" data-target="#headerSearch" class="searchButton clickSubmit headerline__search_a"><i class="fa fa-search headerline__search_icon"></i></a>
+            </div>
+          </div>
+          <div class="headerline__cart"> <a href="#" class="headerline__cart_a"><i class="fa fa-shopping-basket headerline__cart_icon"></i><span class="headerline__cart_span">(0)         </span></a></div>
+          <div class="headerline__menu"><a href="#" class="headerline__menu_a"><i class="fa fa- fa-navicon headerline__menu_icon"></i><span class="headerline__menu_span">Menu</span></a></div>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+<section class="contentblock__section">
+  <div class="container">
+{% if flash.success %}
+    <h1 class="green">{{ flash.success }}</h1>
+{% elseif flash.error %}
+    <h1 class="red">{{ flash.error }}</h1>
+{% endif %}    
+    <h1 class="contentblock__section_h1">Contact us</h1>
+    <p class="contentblock__section_p">To contact us please use the form below.<br>                    Please note that due to the high volume of enquiries we might not be able to get back to you the same day.</p>
+    <p class="contentblock__section_p">If your enquiry relates to any of the courses, please use the designated comments section under the course as we do not provide support over email.</p>
+  </div>
+</section>
+<section class="forma__section">
+  <form method="post" action="/public/contact" id="formid"  data-ajax-form="" data-success-behaviour="fadeOutShowMessage" novalidate="">
+  <input name="_token" id="token" value="{{ token  }}" type="hidden">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <label for="first_name" class="first_name forma__section_label"><span data-validation="first_name" class="first_name"><span class="min name none red"></span><br></span></label>
+        <div class="clear-block">
+          <input id="name" value="" name="name" placeholder="{{ info.name  }}" type="text" class="clearable forma__section_input"><span class="clear-button none">X          </span>
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <label for="last_name" class="last_name forma__section_label"><span class="last_name"><span class="min lastname none red"></span><br></span></label>
+        <div class="clear-block">
+          <input id="lastname" value="" name="lastname" placeholder="{{ info.lastname }}" type="text" class="clearable forma__section_input"><span class="clear-button none">X</span>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <label for="email" class="email forma__section_label"><span class="email"><span class="min email none red"></span><br></span></label>
+        <div class="clear-block">
+          <input id="email" name="email" placeholder="{{ info.email }}" type="text" class="clearable forma__section_input"><span class="clear-button none">X</span>
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <label for="subject" class="subject forma__section_label"><span class="subject"><span class="min subject none red"></span><br></span></label>
+        <div class="clear-block">
+          <input id="subject" value="" name="subject" placeholder="{{ info.subject }}" type="text" class="clearable forma__section_input"><span class="clear-button none">X  </span>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="column">
+        <label for="enquiry" class="message forma__section_label"><span class="enquiry"><span class="min message none red"></span><br></span></label>
+        <div class="clear-block">
+          <textarea id="message" name="message" placeholder="{{ info.message }}" style="height: 10rem; " class="clearable forma__section_textarea"></textarea><span class="clear-button none">X</span>
+        </div>
+      </div>
+    </div>
+    <input value="SEND ENQUIRY" type="submit" class="small button forma__section_submit">
+  </div>
+  </form>
+</section>
+<footer class="footer__footersmall">
+  <div class="container">
+    <p class="footer__footersmall_p"><a href="https://http://contact.html/#" class="footer__footersmall_a">(c) 2016 CONTACT US</a></p>
+  </div>
+</footer>
+
+	<script type="text/javascript" src="{{ baseUrl() }}/js/submit.js"></script>
+	<script type="text/javascript" src="{{ baseUrl() }}/js/onchange.js"></script>
+
+</body>
+</html>

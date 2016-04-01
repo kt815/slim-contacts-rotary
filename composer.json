@@ -1,0 +1,32 @@
+{
+    "name": "Slim Contact",
+    "description" : "Slim Contact for Inspiration",
+    "keywords": ["Slim, Contact, Ajax, mySQL"],
+    "homepage": "https://github.com/kt815",
+    "license": "MIT",
+    "type": "development",
+    "authors": [
+        {                 	
+            "name": "kt815",
+            "email": "s.buharow@gmail.com",
+            "homepage": "https://github.com/kt815",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+	"slim/slim":"2.*",
+        "slim/views": "*",
+        "twig/twig": "*",
+        "twig/extensions": "*",
+        "illuminate/database": "*",
+        "vlucas/phpdotenv": "1.1.*",
+	"oodle/krumo": "dev-master",
+	"monolog/monolog": "^1.13"
+    },
+    "autoload": {
+        "psr-4": {
+	    "Models\\Core\\": "app/Models/Core"
+        }	
+    }
+}
