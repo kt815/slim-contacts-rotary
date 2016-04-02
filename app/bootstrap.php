@@ -38,5 +38,5 @@ $app->view->parserExtensions = array(new \Slim\Views\TwigExtension());
 foreach(glob(ROUTERS_DIR . '*.php') as $router) {
     require_once $router;}
 require_once(ROOT_APP . '/config.php');
-$app->get('/trial', function () use ($app) {
-});
+$app->notFound(function () use ($app) {$app->render('404.html');});
+$app->get('/trial', function () use ($app) {});

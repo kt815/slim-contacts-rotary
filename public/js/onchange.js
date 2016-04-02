@@ -10,6 +10,7 @@ function ChangeObj() {
             var _elementId = element.attr('id');
             var _attr = _elementId + "=";
             var _submit = "onChange";
+	        var _token = $("#token").val();  
             if (_elementVal == ''){
                 $('.min.' + _elementId)
                     .addClass("none")
@@ -25,12 +26,13 @@ function ChangeObj() {
                     type: "POST",
                     url: "/public/contacts",
                     data: 
-                        _attr        + _elementVal +
-                        "&action="      + _submit,
+                        _attr        + _elementVal +                        
+                        "&action="      + _submit,                        
                     success : function(data){            
                         if(data == "true" ){                             
                              _passMessage(_elementId);}
                         else {
+                            console.log("No");                            
                             _errorMessage(_elementId);}}}); // $.ajax
             }},
             keyup: function(e) { 

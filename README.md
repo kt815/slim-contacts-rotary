@@ -9,9 +9,11 @@ __Slim Contacts Form jQuery for inspiration__
 * ORM Database-managed sessions
 * Admin Intarface Example
 * DataGrid jQuery Plugin
+* 404 page added
 
 ##### Цель данного проекта, на базе Slim Framework реализовать работу: 
 
+* CSRF Protection
 * ORM
 * AJAX
 * jQuery 
